@@ -1,13 +1,25 @@
 <?php
 include("database.inc");
-$sql2="SELECT * FROM userlist";
-//hazim comment save
-$result=mysqli_query($conn,$sql2);
-if(mysqli_num_rows($result)>0){
-    while($row=mysqli_fetch_assoc($result)){
-        if(isset($_POST['delete'.$row['id']])){
-            $sql3="DELETE FROM userlist WHERE id = ".$row['id'];
-            mysqli_query($conn, $sql3);
+// $sql2="SELECT * FROM userlist";
+// $result=mysqli_query($conn,$sql2);
+// if(mysqli_num_rows($result)>0){
+//     while($row=mysqli_fetch_assoc($result)){
+//         if(isset($_POST['delete'.$row['id']])){
+//             $sql3="DELETE FROM userlist WHERE id = ".$row['id'];
+//             mysqli_query($conn, $sql3);
+//         }
+//     }
+// }
+$sql2 = "SELECT * FROM userlist";
+$stmt = $pdo->query($sql2); // Execute query and fetch results
+
+if ($stmt->rowCount() > 0) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        if (isset($_POST['delete' . $row['id']])) {
+            // Use prepared statement for the DELETE query
+            $sql3 = "DELETE FROM userlist WHERE id = :id";
+            $deleteStmt = $pdo->prepare($sql3);
+            $deleteStmt->execute([':id' => $row['id']]);
         }
     }
 }
@@ -30,17 +42,18 @@ if(mysqli_num_rows($result)>0){
             <h1>Access</h1>
         </div>
         <?php
-            $sql="SELECT * FROM userlist";
-            $result=mysqli_query($conn,$sql);
-            if(mysqli_num_rows($result)>0){
-            while($row=mysqli_fetch_assoc($result)){
+            $sql = "SELECT * FROM userlist";
+            $stmt = $pdo->query($sql); // Execute query and fetch results
+
+            if ($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
         <form method="post" class="list" id="list">
-            <h1><?php echo $row["Date"];?></h1>
-            <h1><?php echo $row["Name"];?></h1>
-            <h1><?php echo $row["Time"];?></h1>
-            <h1><?php echo $row["Access"];?></h1>
-            <button class="delete" id="delete" name="delete<?php echo $row["id"];?>">Delete</button>
+            <h1><?php echo htmlspecialchars($row["Date"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["Name"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["Time"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["Access"]); ?></h1>
+            <button class="delete" id="delete" name="delete<?php echo $row["id"]; ?>">Delete</button>
         </form>
         <?php
             }}
