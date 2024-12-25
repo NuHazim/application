@@ -1,6 +1,7 @@
 <?php
 include("database.inc");
 $sql2="SELECT * FROM userlist";
+//hazim comment save
 $result=mysqli_query($conn,$sql2);
 if(mysqli_num_rows($result)>0){
     while($row=mysqli_fetch_assoc($result)){
