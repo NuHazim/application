@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("database.inc");
 $sql2="SELECT * FROM userlist";
 $result=mysqli_query($conn,$sql2);
 if(mysqli_num_rows($result)>0){
