@@ -1,12 +1,24 @@
 <?php
 include("database.inc");
-if(isset($_POST['submit'])){
-    $name=$_POST['name'];
-    $date=$_POST['date'];
-    $time=$_POST['time'];
-    $access=$_POST['access'];
-    $sql="INSERT INTO userlist(Name,Date,Time,Access) VALUES ('$name','$date','$time','$access')";
-    mysqli_query($conn,$sql);
+if (isset($_POST['submit'])) {
+    // Retrieve input values
+    $name = $_POST['name'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $access = $_POST['access'];
+
+    // Prepare the SQL query using placeholders
+    $sql = "INSERT INTO userlist (Name, Date, Time, Access) VALUES (:name, :date, :time, :access)";
+    $stmt = $pdo->prepare($sql);
+
+    // Bind parameters to prevent SQL injection
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+    $stmt->bindParam(':time', $time, PDO::PARAM_STR);
+    $stmt->bindParam(':access', $access, PDO::PARAM_STR);
+
+    // Execute the prepared statement
+    $stmt->execute();
 }
 ?>
 <!DOCTYPE html>
