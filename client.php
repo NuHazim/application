@@ -6,9 +6,11 @@ if (isset($_POST['submit'])) {
     $date = $_POST['date'];
     $time = $_POST['time'];
     $access = $_POST['access'];
+    $IC = $_POST['IC'];
+    $phone = $_POST['phone'];
 
     // Prepare the SQL query using placeholders
-    $sql = "INSERT INTO userlist (Name, Date, Time, Access) VALUES (:name, :date, :time, :access)";
+    $sql = "INSERT INTO userlist (Name, Date, Time, Access, IC, phone) VALUES (:name, :date, :time, :access, :IC, :phone)";
     $stmt = $pdo->prepare($sql);
 
     // Bind parameters to prevent SQL injection
@@ -16,6 +18,8 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':date', $date, PDO::PARAM_STR);
     $stmt->bindParam(':time', $time, PDO::PARAM_STR);
     $stmt->bindParam(':access', $access, PDO::PARAM_STR);
+    $stmt->bindParam(':IC', $IC, PDO::PARAM_STR);
+    $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
 
     // Execute the prepared statement
     $stmt->execute();
@@ -34,9 +38,13 @@ if (isset($_POST['submit'])) {
         <h1>Application form</h1>
         <form class="form" action="client.php" method="post">
             <div class="question"><label>Name:</label><input name="name" type="text" placeholder="Enter name here..." required></div>
+            <div class="question"><label>IC:</label><input name="IC" type="text" ></div>      
+            <div class="question"><label>Phone:</label><input name="phone" type="text" ></div>      
             <div class="question"><label>Date:</label><input name="date" type="date" required></div>
             <div class="question"><label>Time:</label><input name="time" type="time" required></div>
             <div class="question"><label>Access Code:</label><input name="access" type="text" placeholder="Enter Acess code here..." required></div>
+      
+
             <div class="centerbutton"><button type="submit" name="submit" class="button">Submit</button></div>
         </form>
     </div>
