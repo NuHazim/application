@@ -50,7 +50,7 @@ if (isset($_GET['action'])) {
                 $id = $row["id"];
                 // delete this id from 
                 $sql4 = "DELETE from rfidlist WHERE id = :id";
-                $stmt4 = $pdo->prepare($sql);
+                $stmt4 = $pdo->prepare($sql4);
 
                 // Bind parameters to prevent SQL injection
                 $stmt4->bindParam(':id', $id, PDO::PARAM_INT );
