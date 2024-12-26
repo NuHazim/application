@@ -50,7 +50,6 @@ include("database.inc");
             } else {
                 tr.innerHTML = "<td>${row.name}</td><td>${row.IC}</td><td>${row.phone}</td>";
             }
-            tr.innerHTML = "<td colspan='3' class='text-center'>No data available</td>";
             table.appendChild(tr);
           });
       }
