@@ -1,9 +1,5 @@
 <?php
 include("database.inc");
-    // Retrieve input values
-    $action = $_GET['action'];
-    $rfid = $_GET['rfid'];
-    //echo "action is " . $action. "<br>";
     $sql = "SELECT * FROM rfidlist order by id;";
     $stmt = $pdo->query($sql); // Execute query and fetch results
     $jsonString = "[";
