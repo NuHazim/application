@@ -13,12 +13,12 @@ include("database.inc");
             $Date = htmlspecialchars($row["Date"]);
             $Time = htmlspecialchars($row["Time"]);
             $Access = htmlspecialchars($row["Access"]);
-            $Phone = htmlspecialchars($row["phone"]);
+            $phone = htmlspecialchars($row["phone"]);
             if($rowNum == 0){
-                $jsonString="[{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
+                $jsonString="[{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $phone  . "\"}";
 
             } else {
-                $jsonString=$jsonString. ",{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
+                $jsonString=$jsonString. ",{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $phone  . "\"}";
 
             }
             $rowNum = $rowNum + 1;
