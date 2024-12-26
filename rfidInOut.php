@@ -20,6 +20,8 @@ if (isset($_GET['action'])) {
             $ic="-";
             $phone="-";
             $access=$rfid;
+           
+            date_default_timezone_set("Asia/Kuala_Lumpur");
             $date=date('Y-m-d');
             $time=date('H:i:s');
             // Prepare the SQL query using placeholders
