@@ -41,8 +41,8 @@ CREATE TABLE `userlist` (
 -- Dumping data for table `userlist`
 --
 
-INSERT INTO `userlist` (`Name`, `Date`, `Time`, `Access`, `id`) VALUES
-('Nufail Hazim', '2024-12-25', '18:17:00', 'RFID766', 6);
+--INSERT INTO `userlist` (`Name`, `Date`, `Time`, `Access`, `id`) VALUES
+--('Nufail Hazim', '2024-12-25', '18:17:00', 'RFID766', 6);
 
 --
 -- Indexes for dumped tables
