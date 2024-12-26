@@ -48,6 +48,7 @@ if (isset($_GET['action'])) {
                 //}
                 $row = $stmt3->fetch(PDO::FETCH_ASSOC);
                 $id = $row["id"];
+                echo "Will delete record for id ". $id."<br>";
                 // delete this id from 
                 $sql4 = "DELETE from rfidlist WHERE id = :id";
                 $stmt4 = $pdo->prepare($sql4);
