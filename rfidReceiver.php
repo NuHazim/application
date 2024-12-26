@@ -44,6 +44,12 @@ include("database.inc");
       } else {
           data.forEach((row, index) => {
             const tr = document.createElement('tr');
+            if (index === 0) {
+                tr.classList.add('first-row');
+                tr.innerHTML = "<td>${row.name}</td><td>${row.IC}</td><td>${row.phone} <span style='color: #6A1B9A; font-weight: bold;'>Now Serving</span></td>";
+            } else {
+                tr.innerHTML = "<td>${row.name}</td><td>${row.IC}</td><td>${row.phone}</td>";
+            }
             tr.innerHTML = "<td colspan='3' class='text-center'>No data available</td>";
             table.appendChild(tr);
           });
