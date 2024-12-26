@@ -36,7 +36,7 @@ include("database.inc");
     fetch('/application/gettable.php').then(response => response.json()).then(data => {
       const table = document.getElementById('dataTable');
       table.innerHTML = ''; // Clear the table
-      console.log(data);
+      //console.log(data);
 
       if (data.length === 1 && data[0].name === 'No Data') {
           const tr = document.createElement('tr');
@@ -46,11 +46,12 @@ include("database.inc");
       } else {
           data.forEach((row, index) => {
             const tr = document.createElement('tr');
+            console.log(row);
             if (index === 0) {
                 tr.classList.add('first-row');
-                tr.innerHTML = "<td>${row.name}</td><td>${row.IC}</td><td>${row.phone} <span style='color: #6A1B9A; font-weight: bold;'>Now Serving</span></td>";
+                tr.innerHTML = "<td>" + row.name + "</td><td>" + row.IC + "</td><td>" + row.phone + " <span style='color: #6A1B9A; font-weight: bold;'>Now Serving</span></td>";
             } else {
-                tr.innerHTML = "<td>${row.name}</td><td>${row.IC}</td><td>${row.phone}</td>";
+                tr.innerHTML = "<td>" + row.name + "</td><td>" + row.IC + "</td><td>" + row.phone + "</td>";
             }
             table.appendChild(tr);
           });
