@@ -21,6 +21,7 @@ include("database.inc");
 
     $jsonString=$jsonString."]";
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($jsonString);
+    //echo json_encode($jsonString);
+    echo $jsonString;
 
 ?>
