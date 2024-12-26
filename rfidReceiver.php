@@ -33,7 +33,7 @@ include("database.inc");
   </div>
   <script>
   function fetchTableData() {
-    fetch('/gettable.php').then(response => response.json()).then(data => {
+    fetch('/application/gettable.php').then(response => response.json()).then(data => {
       const table = document.getElementById('dataTable');
       table.innerHTML = ''; // Clear the table
   
