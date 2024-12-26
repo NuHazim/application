@@ -17,10 +17,25 @@ if (isset($_GET['action'])) {
         
         if($action == 'login'){
             echo "Login for rfid ". $rfid. " which name is ".$name. "<br>";
-            $sqlInsert-"INSERT INTO `rfidlist` (`Name`, `IC`, `Phone`, `Date`, `Time`, `Access`) VALUES
-                     ('".$name."', '-', '-', '2024-12-25', '18:17:00', '".$rfid."');";
-            echo $sqlInsert;
+            $ic="-";
+            $phone="-";
+            $access=$rfid;
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
+            // Prepare the SQL query using placeholders
+            $sql = "INSERT INTO rfidlist (Name, IC, Phone, Date, Time,Access) VALUES (:name,:ic,:phone, :date, :time, :access)";
+            $stmt = $pdo->prepare($sql);
 
+            // Bind parameters to prevent SQL injection
+            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $stmt->bindParam(':ic', $ic, PDO::PARAM_STR);
+            $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+            $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+            $stmt->bindParam(':time', $time, PDO::PARAM_STR);
+            $stmt->bindParam(':access', $access, PDO::PARAM_STR);
+
+            // Execute the prepared statement
+            $stmt->execute();
         } else {
             echo "Logout for rfid ". $rfid. " which name is ".$name. "<br>";
         }
