@@ -40,6 +40,25 @@ if (isset($_GET['action'])) {
             $stmt->execute();
         } else {
             echo "Logout for rfid ". $rfid. " which name is ".$name. "<br>";
+            $sql3 = "SELECT id FROM rfidlist WHERE Access='".$rfid."' order by Date,Time limit 1";
+            $stmt3 = $pdo->query($sql3); // Execute query and fetch results
+            if ($stmt3->rowCount() > 0) {
+        
+                //while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //}
+                $row = $stmt3->fetch(PDO::FETCH_ASSOC);
+                $id = $row["id"];
+                // delete this id from 
+                $sql4 = "DELETE from rfidlist WHERE id = :id";
+                $stmt4 = $pdo->prepare($sql);
+
+                // Bind parameters to prevent SQL injection
+                $stmt4->bindParam(':id', $id, PDO::PARAM_INT );
+                $stmt4->execute();
+            } else {
+                echo "No record found in queue for rfid ". $rfid;
+            }
+
         }
     } else {
         echo "No record found for rfid ". $rfid;
