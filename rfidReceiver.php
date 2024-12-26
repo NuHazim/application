@@ -46,7 +46,9 @@ include("database.inc");
       } else {
           data.forEach((row, index) => {
             const tr = document.createElement('tr');
-            console.log(row);
+            console.log("Name:" + row.name);
+            console.log("IC:" + row.IC);
+            console.log("phone:" + row.phone);
             if (index === 0) {
                 tr.classList.add('first-row');
                 tr.innerHTML = "<td>" + row.name + "</td><td>" + row.IC + "</td><td>" + row.phone + " <span style='color: #6A1B9A; font-weight: bold;'>Now Serving</span></td>";
