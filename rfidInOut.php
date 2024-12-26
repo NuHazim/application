@@ -4,7 +4,7 @@ if (isset($_GET['action'])) {
     // Retrieve input values
     $action = $_GET['action'];
     $rfid = $_GET['rfid'];
-    echo "action is " . $action;
+    //echo "action is " . $action. "<br>";
     $sql2 = "SELECT * FROM userlist WHERE Access='".$rfid."'";
     $stmt = $pdo->query($sql2); // Execute query and fetch results
 
@@ -14,7 +14,12 @@ if (isset($_GET['action'])) {
         //}
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $name = $row["Name"];
-        echo "Record for rfid ". $rfid. " name is ".$name;
+        
+        if($action == 'login'){
+            echo "Login for rfid ". $rfid. " which name is ".$name. "<br>";
+        } else {
+            echo "Logout for rfid ". $rfid. " which name is ".$name. "<br>";
+        }
     } else {
         echo "No record found for rfid ". $rfid;
     }
