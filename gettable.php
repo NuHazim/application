@@ -13,7 +13,7 @@ include("database.inc");
             $Date = htmlspecialchars($row["Date"]);
             $Time = htmlspecialchars($row["Time"]);
             $Access = htmlspecialchars($row["Access"]);
-            $Phone = "-";
+            $Phone = htmlspecialchars($row["phone"]);
             if($rowNum == 0){
                 $jsonString="[{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
 
