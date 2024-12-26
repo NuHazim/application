@@ -36,8 +36,10 @@ if ($stmt->rowCount() > 0) {
     <div class="container">
         <h1>List of Applications</h1>
         <div class="list" style="padding-right:100px;">
-            <h1>Date</h1>
             <h1>Name</h1>
+            <h1>IC</h1>
+            <h1>Phone</h1>
+            <h1>Date</h1>
             <h1>Time</h1>
             <h1>Access</h1>
         </div>
@@ -49,8 +51,10 @@ if ($stmt->rowCount() > 0) {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
         <form method="post" class="list" id="list">
-            <h1><?php echo htmlspecialchars($row["Date"]); ?></h1>
             <h1><?php echo htmlspecialchars($row["Name"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["IC"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["phone"]); ?></h1>
+            <h1><?php echo htmlspecialchars($row["Date"]); ?></h1>
             <h1><?php echo htmlspecialchars($row["Time"]); ?></h1>
             <h1><?php echo htmlspecialchars($row["Access"]); ?></h1>
             <button class="delete" id="delete" name="delete<?php echo $row["id"]; ?>">Delete</button>
