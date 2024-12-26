@@ -15,7 +15,7 @@ include("database.inc");
             $Access = htmlspecialchars($row["Access"]);
             $Phone = "-";
             if($rowNum == 0){
-                $jsonString="{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
+                $jsonString="[{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
 
             } else {
                 $jsonString=$jsonString. ",{\"name\":\"" . $name . "\",\"IC\":\"" . $IC . "\",\"phone\":\"" . $Phone  . "\"}";
