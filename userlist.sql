@@ -32,6 +32,8 @@ CREATE TABLE `userlist` (
   `Date` date NOT NULL,
   `Time` time NOT NULL,
   `Access` varchar(100) NOT NULL,
+  `IC` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
