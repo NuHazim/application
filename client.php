@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
         <form class="form" action="client.php" method="post">
             <div class="question"><label>Name:</label><input name="name" type="text" placeholder="Enter name here..." required></div>
             <div class="question"><label>IC:</label><input name="IC" type="text" ></div>      
-            <div class="question"><label>Phone:</label><input name="phone" type="text" ></div>      
+            <div class="question"><label>Phone:</label><input name="phones" type="text" ></div>      
             <div class="question"><label>Date:</label><input name="date" type="date" required></div>
             <div class="question"><label>Time:</label><input name="time" type="time" required></div>
             <div class="question"><label>Access Code:</label><input name="access" type="text" placeholder="Enter Acess code here..." required></div>
