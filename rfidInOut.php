@@ -17,6 +17,10 @@ if (isset($_GET['action'])) {
         
         if($action == 'login'){
             echo "Login for rfid ". $rfid. " which name is ".$name. "<br>";
+            $sqlInsert-"INSERT INTO `rfidlist` (`Name`, `IC`, `Phone`, `Date`, `Time`, `Access`) VALUES
+                     ('".$name."', '-', '-', '2024-12-25', '18:17:00', '".$rfid."');";
+            echo $sqlInsert;
+
         } else {
             echo "Logout for rfid ". $rfid. " which name is ".$name. "<br>";
         }
