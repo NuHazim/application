@@ -14,11 +14,11 @@ if (isset($_GET['action'])) {
         //}
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $name = $row["Name"];
+        $ic = $row["IC"];
+        $phone = $row["phone"];
         
         if($action == 'login'){
             echo "Login for rfid ". $rfid. " which name is ".$name. "<br>";
-            $ic="-";
-            $phone="-";
             $access=$rfid;
            
             date_default_timezone_set("Asia/Kuala_Lumpur");
