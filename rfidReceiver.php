@@ -37,7 +37,7 @@ include("database.inc");
       const table = document.getElementById('dataTable');
       table.innerHTML = ''; // Clear the table
           const tr = document.createElement('tr');
-          tr.innerHTML = '<td colspan='3' class='text-center'>No data available</td>`;
+          tr.innerHTML = "<td colspan='3' class='text-center'>No data available</td>";
           table.appendChild(tr);
         
      });
