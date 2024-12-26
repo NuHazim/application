@@ -36,10 +36,19 @@ include("database.inc");
     fetch('/application/gettable.php').then(response => response.json()).then(data => {
       const table = document.getElementById('dataTable');
       table.innerHTML = ''; // Clear the table
+      if (data.length === 1 && data[0].name === 'No Data') {
           const tr = document.createElement('tr');
           tr.innerHTML = "<td colspan='3' class='text-center'>No data available</td>";
           table.appendChild(tr);
         
+      } else {
+          data.forEach((row, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = "<td colspan='3' class='text-center'>No data available</td>";
+            table.appendChild(tr);
+          });
+      }
+          
      });
   }
 
