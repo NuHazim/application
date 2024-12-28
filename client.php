@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
             <div class="question"><label>Phone No:</label><input name="phone" type="text" ></div>      
             <div class="question"><label>Date:</label><input name="date" type="date" required></div>
             <div class="question"><label>Time:</label><input name="time" type="time" required></div>
-            <div class="question"><label>Access Code:</label><input name="access" type="text" placeholder="Enter Acess code here..." required></div>
+            <div class="question"><label>Access 3 Code:</label><input name="access" type="text" placeholder="Enter Acess code here..." required></div>
       
 
             <div class="centerbutton"><button type="submit" name="submit" class="button">Submit</button></div>
