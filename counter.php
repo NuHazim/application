@@ -35,7 +35,7 @@ if ($stmt->rowCount() > 0) {
 <body>
     <div class="container">
         <h1>List of Applications</h1>
-        <table>
+        <table border="2">
             <thead>
                 <tr>
                     <th><h1>Name</h1></th>
