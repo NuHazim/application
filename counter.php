@@ -41,7 +41,7 @@ if ($stmt->rowCount() > 0) {
             <h1>Phone</h1>
             <h1>Date</h1>
             <h1>Time</h1>
-            <h1>Access 1</h1>
+            <h1>Access 2</h1>
         </div>
         <?php
             $sql = "SELECT * FROM userlist";
