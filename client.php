@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
         <h1>Application form</h1>
         <form class="form" action="client.php" method="post">
             <div class="question"><label>Name:</label><input name="name" type="text" placeholder="Enter name here..." required></div>
-            <div class="question"><label>IC:</label><input name="IC" type="text" ></div>      
+            <div class="question"><label>IC Number:</label><input name="IC" type="text" ></div>      
             <div class="question"><label>Phone No:</label><input name="phone" type="text" ></div>      
             <div class="question"><label>Date:</label><input name="date" type="date" required></div>
             <div class="question"><label>Time:</label><input name="time" type="time" required></div>
